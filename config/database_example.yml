@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: little_world_development
+  username: postgres
+  password: secret
