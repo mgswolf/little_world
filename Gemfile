@@ -21,6 +21,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -34,7 +35,6 @@ end
 
 group :development do
   gem 'better_errors'
-  gem 'pry-rails'
 end
 
 gem 'puma'
