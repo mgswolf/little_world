@@ -4,6 +4,7 @@ pt-BR:
       friend:
         one: Amigo
         other: Amigos
+        closests: Amigos próximos
     attributes:
       friend:
         name: 'Nome'

@@ -11,3 +11,27 @@
  *= require_self
  *= require_tree .
  */
+#map {
+    width: 420px;
+    height: 268px;
+}
+.map_container{
+    width: 420px;
+    height: 268px;
+}
+
+.gmpa-img{
+    margin: 0 auto;
+    text-align: center;
+}
+.map_container .gmaps4rails_map {
+    width: 420px;
+    height: 268px;
+}
+
+#map img {
+    max-width: none;
+}
+#map label {
+    width: auto; display:inline;
+}

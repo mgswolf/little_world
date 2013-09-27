@@ -1,0 +1,12 @@
+pt-BR:
+  flash:
+    friends:
+      create:
+        alert: "Amigo não pode ser criado."
+        notice: "Amigo criado com sucesso."
+      destroy:
+        alert: "Amigo não pode ser criado."
+        notice: "Amigo criado com sucesso."
+      update:
+        alert: "Amigo não pode ser atualizado."
+        notice: "Amigo atualizado com sucesso."

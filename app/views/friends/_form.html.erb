@@ -1,0 +1,86 @@
+<%= provide :script_header do %>
+
+<% end %>
+<%= form_for @friend, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= render 'shared/error_messages', :object => @friend %>
+   <div class = 'row'>
+     <div class = 'span5'>
+       <div class="control-group">
+         <%= f.label :name, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :name, :class => 'text_field' %>
+         </div>
+       </div>
+       <div class="control-group">
+         <%= f.label :latitude, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :latitude, :class => 'text_field' %>
+         </div>
+       </div>
+       <div class="control-group">
+         <%= f.label :longitude, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :longitude, :class => 'text_field' %>
+         </div>
+       </div>
+     </div>
+     <div class = 'span5'>
+       <div id="map"></div>
+     </div>
+   </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                friends_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    ////map
+    var map = new GMap2(document.getElementById("map"));
+    //var start = new GLatLng(65,25);
+    var lat = -16;
+    var lng = -49;
+    if (document.getElementById('friend_latitude').value !== '') {
+        lat = document.getElementById('friend_latitude').value;
+    }
+    if (document.getElementById('friend_longitude').value !== '') {
+        lng = document.getElementById('friend_longitude').value;
+    }
+
+    map.setCenter(new GLatLng(lat,lng), 4);
+    map.addControl(new GMapTypeControl(1));
+    map.addControl(new GLargeMapControl());
+
+    map.enableContinuousZoom();
+    map.enableDoubleClickZoom();
+    map.enableScrollWheelZoom ();
+
+
+
+    // "tiny" marker icon
+    var icon = new GIcon();
+    icon.iconSize = new GSize(12, 20);
+    icon.shadowSize = new GSize(22, 20);
+    icon.iconAnchor = new GPoint(6, 20);
+    icon.infoWindowAnchor = new GPoint(5, 1);
+
+
+
+    /////Draggable markers
+
+
+    var point = new GLatLng(lat,lng);
+    var marker = new GMarker(point, {icon:G_DEFAULT_ICON, draggable: true});
+    map.addOverlay(marker);
+
+    marker.enableDragging();
+
+    GEvent.addListener(marker, "drag", function(){
+        document.getElementById('friend_latitude').value = marker.getLatLng().lat();
+        document.getElementById('friend_longitude').value = marker.getLatLng().lng();
+    });
+
+    //]]>
+</script>

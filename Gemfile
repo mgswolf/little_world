@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.4'
+#ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.4'
 gem 'rails', '4.0.0'
 
-gem 'activerecord-jdbcpostgresql-adapter'
+#gem 'activerecord-jdbcpostgresql-adapter'
+gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 
 gem 'uglifier', '>= 1.3.0'
@@ -13,6 +14,7 @@ gem 'therubyrhino'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'rails-i18n'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
