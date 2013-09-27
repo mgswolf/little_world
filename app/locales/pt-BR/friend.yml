@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      friend:
+        one: Amigo
+        other: Amigos
+    attributes:
+      friend:
+        name: 'Nome'
